@@ -1,0 +1,6 @@
+mlruns
+data
+output
+outputs
+catboost_info
+.ipynb_checkpoints
