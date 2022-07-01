@@ -1,0 +1,1 @@
+{"dolno\u015bl\u0105skie": 0, "kujawsko-pomorskie": 1, "\u0142\u00f3dzkie": 2, "lubelskie": 3, "lubuskie": 4, "ma\u0142opolskie": 5, "mazowieckie": 6, "opolskie": 7, "podkarpackie": 8, "podlaskie": 9, "pomorskie": 10, "\u015bl\u0105skie": 11, "\u015bwi\u0119tokrzyskie": 12, "warmi\u0144sko-mazurskie": 13, "wielkopolskie": 14, "zachodniopomorskie": 15}

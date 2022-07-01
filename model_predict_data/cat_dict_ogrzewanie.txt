@@ -1,0 +1,1 @@
+{"gazowe": 0, "miejskie": 1, "NaN": -1, "kot\u0142ownia": 2, "elektryczne": 3, "piece kaflowe": 4, "inne": 5}

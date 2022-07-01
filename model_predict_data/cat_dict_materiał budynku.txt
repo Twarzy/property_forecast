@@ -1,0 +1,1 @@
+{"silikat": 0, "ceg\u0142a": 1, "NaN": -1, "wielka p\u0142yta": 2, "beton kom\u00f3rkowy": 3, "inne": 4, "pustak": 5, "\u017celbet": 6, "beton": 7, "drewno": 8, "keramzyt": 9}

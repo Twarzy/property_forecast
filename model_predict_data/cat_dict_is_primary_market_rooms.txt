@@ -1,0 +1,1 @@
+{"True_3": 0, "True_1": 1, "True_4": 2, "False_2": 3, "False_3": 4, "True_2": 5, "True_5": 6, "False_1": 7, "False_5": 8, "False_4": 9, "False_8": 10, "True_11": 11, "False_6": 12, "True_6": 13, "False_9": 14, "False_7": 15, "True_7": 16, "False_11": 17, "True_8": 18, "False_10": 19, "True_9": 20, "True_10": 21}

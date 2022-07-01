@@ -1,0 +1,1 @@
+{"szeregowiec": 0, "NaN": -1, "blok": 1, "kamienica": 2, "dom wolnostoj\u0105cy": 3, "apartamentowiec": 4, "plomba": 5, "loft": 6}

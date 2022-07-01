@@ -1,0 +1,1 @@
+{"pe\u0142na w\u0142asno\u015b\u0107": 0, "NaN": -1, "sp\u00f3\u0142dzielcze w\u0142. z kw": 1, "sp\u00f3\u0142dzielcze w\u0142asno\u015bciowe": 2, "udzia\u0142": 3}

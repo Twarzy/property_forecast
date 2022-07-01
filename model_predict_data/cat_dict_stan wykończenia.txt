@@ -1,0 +1,1 @@
+{"do wyko\u0144czenia": 0, "NaN": -1, "do zamieszkania": 1, "do remontu": 2}

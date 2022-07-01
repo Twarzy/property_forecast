@@ -1,0 +1,1 @@
+{"True_szeregowiec": 0, "True_nan": 1, "False_nan": 2, "False_blok": 3, "False_szeregowiec": 4, "False_kamienica": 5, "False_dom wolnostoj\u0105cy": 6, "True_apartamentowiec": 7, "True_blok": 8, "False_apartamentowiec": 9, "True_kamienica": 10, "True_dom wolnostoj\u0105cy": 11, "False_plomba": 12, "True_loft": 13, "True_plomba": 14, "False_loft": 15}
