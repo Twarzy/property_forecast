@@ -54,7 +54,8 @@ def fe(df):
     def categorize_from_json(df, featname):
         """Import dictionary with label encoding used for training model
         and used it to categorize dataframe feature"""
-        with open('model_predict_data/cat_dict_{}.txt'.format(featname), 'r') as file:
+        with open('model_predict_data/cat_dict_{}.txt'.format(featname), 'r', encoding='cp437',
+                 errors='ignore') as file:
             cat_dict = json.load(file)
             
         return df[featname].map(cat_dict)
@@ -63,7 +64,8 @@ def fe(df):
     def import_aggregated_df_from_csv(groupby_feats, feat):
         """Import aggregations used for training model"""        
         filename = 'groupby_{}_{}.csv'.format('_'.join(groupby_feats), feat)
-        with open('model_predict_data/{}'.format(filename), 'r') as file:
+        with open('model_predict_data/{}'.format(filename), 'r', encoding='cp437',
+                 errors='ignore') as file:
             groupby_df = pd.read_csv(file)
         return groupby_df
     
@@ -84,8 +86,7 @@ def fe(df):
     df['area_num'] = df.area.astype(float)
     area_num_99 = np.percentile(df['area_num'], 99)
     df['area_norm'] = df['area_num'].map(lambda x: x if x <= area_num_99 else area_num_99)
-    df['area_num_log'] = np.log(df['area_num'])
-    df['price_m2'] = df['price'] / df['area_num'] 
+    df['area_num_log'] = np.log(df['area_num'])    
     
     # Rooms
     df['area_per_room'] = df['area_norm'] / df["rooms"]    
@@ -150,11 +151,11 @@ def fe(df):
     df['floors_in_building_num'] = df['floors_in_building'].map(normalize_floors_in_building)
    
     # "price" aggregations    
-    groupby_city_price = import_aggregated_df_from_csv(df, ['city'], 'price')       
+    groupby_city_price = import_aggregated_df_from_csv(['city'], 'price')       
     if 'median_city_price' not in df:
         df = pd.merge(df, groupby_city_price, on='city', how='left')
         
-    groupby_county_price = import_aggregated_df_from_csv(df, ['county'], 'price')   
+    groupby_county_price = import_aggregated_df_from_csv(['county'], 'price')   
     if 'median_county_price' not in df:
         df = pd.merge(df, groupby_county_price, on='county', how='left')
 
@@ -164,11 +165,11 @@ def fe(df):
     df = is_primary_market_conc(df, 'rodzaj zabudowy') 
     
     # "price_m2" aggregations for concateneted is_primary_market with other features.   
-    groupby_price_m2 = import_aggregated_df_from_csv(df, ['is_primary_market_rooms'], 'price_m2')
+    groupby_price_m2 = import_aggregated_df_from_csv(['is_primary_market_rooms'], 'price_m2')
     if 'median_is_primary_market_rooms_price_m2' not in df:
         df = pd.merge(df, groupby_price_m2, on='is_primary_market_rooms', how='left')
         
-    groupby_price_m2 = import_aggregated_df_from_csv(df, ['is_primary_market_rodzaj zabudowy'], 'price_m2')
+    groupby_price_m2 = import_aggregated_df_from_csv(['is_primary_market_rodzaj zabudowy'], 'price_m2')
     if 'median_is_primary_market_rodzaj zabudowy_price_m2' not in df:
         df = pd.merge(df, groupby_price_m2, on='is_primary_market_rodzaj zabudowy', how='left')
         
@@ -224,4 +225,4 @@ def get_forecast():
     
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8051)
+    app.run(host='0.0.0.0', port=8051, debug=True)
