@@ -1,1 +1,1 @@
-web: gunicorn app:Property_prediction_server
+web: gunicorn Property_prediction_server:app
