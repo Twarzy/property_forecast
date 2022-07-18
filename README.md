@@ -1,6 +1,7 @@
 ﻿# Property Price Prediction
 > Machine Learning model forecasting real estate price on the Polish market
-> created as part of the initiative DWSolution by https://dataworkshop.eu/
+> Live demo [_here_](https://propertypredict.herokuapp.com/)
+
 
 ## Table of Contents
 * [General Info](#general-information)
@@ -54,7 +55,7 @@ Project is: _in progress_
 ## Acknowledgements
 - This project was created as part of the https://dataworkshop.eu/ "DWSolution" initiative.
 - Many thanks to https://dataworkshop.eu/ club members
- and [@Vladimir](https://github.com/slon1024) for being great DS teacher.
+ and [@Vladimir](https://github.com/slon1024) for being great teacher.
 - README inspired by [@flynerdpl](https://www.flynerd.pl/) cheatsheet.
 
 
