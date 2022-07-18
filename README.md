@@ -1,5 +1,5 @@
 ﻿# Property Price Prediction
-> Machine Learning model forecasting real estate price on the Polish market
+> Machine Learning model forecasting real estate price on the Polish market.  
 > Live demo [_here_](https://propertypredict.herokuapp.com/)
 
 
