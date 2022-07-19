@@ -1,0 +1,72 @@
+var urlToPredict = "https://propertypredict.herokuapp.com/predict";
+
+
+function onOpen() {
+    let ui = SpreadsheetApp.getUi();
+    ui.createMenu("Custom menu")
+      .addItem("makePrediction", "makePrediction")
+      .addToUi();
+}
+
+onOpen()
+
+
+function readData() {
+  var sheet = SpreadsheetApp.getActive().getSheetByName("Property");
+  var values = sheet.getDataRange().getValues();
+
+  headers = []
+  for (let i = 0; i < values[0].length; i++) {
+    if(values[0][i] != "predict") {
+      headers.push(values[0][i])
+    }
+  }
+
+  data = []
+  for (let i = 1; i < values.length; i++) {
+    item = {}
+    for (let j=0; j < headers.length; j++) {
+      item[headers[j]] = values[i][j]
+    }
+
+    data.push(item)
+  }
+
+  return data
+
+}
+
+
+function makePrediction() {
+  
+  
+  let data = readData()
+
+
+  let config = {
+    method: "POST",
+    contentType: "application/json",
+    followRedirects: true,
+    headers: {
+      "Content-type" : "application/json"
+    },
+    payload: JSON.stringify(data)
+  };
+
+  var response = UrlFetchApp.fetch(urlToPredict, config);
+
+  let json = JSON.parse(response.getContentText())
+
+  let prices = []
+  for (let i = 0; i < json["prices"].length; i++) {
+    prices.push( [json["prices"][i]] )
+  }
+
+  console.log(prices)
+  
+  var range = SpreadsheetApp.getActive().getSheetByName("Property").getRange("S2:S" + String(json["prices"].length + 1));
+  range.setBackgroundColor("#ADD8E6");
+  range.setValues(prices);
+}
+
+makePrediction()
