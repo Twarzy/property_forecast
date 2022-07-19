@@ -201,21 +201,22 @@ def fe(df):
     print('Done')   
     return df
 
-home_template = """<!DOCTYPE html>
+home_template = """
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Real Estate Price Prediction by Bartosz Kowalik</title>
+<title>Prediction server</title>
 </head>
 <body>
 
 [TEMPORARY TEMPLATE]
-<h1>Real estate price prediction by <a href="https://www.linkedin.com/in/bartosz-kowalik-5756ba1b3">Bartosz Kowalik</a></h1></br>
+<h1>Property price prediction by <a href="https://www.linkedin.com/in/bartosz-kowalik-5756ba1b3">Bartosz Kowalik</a></h1></br>
 
 <h2>
 <a href="https://docs.google.com/spreadsheets/d/1jgPEtyx0QhLS91Z51rJ8HMKu22zxUFoLuuMuUrFyn-o">This is link</a>
 to Google sheet with implemented script, that connects it with our prediction server. </br>
-You can make real estate price prediction directly in your Google sheet. </br></br>
+You can make property price predictions directly in your Google sheet. </br></br>
 
 SETUP: </br>
 [TO BE COMPLETED]</br></br>
