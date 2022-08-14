@@ -25,7 +25,7 @@
   </header>
 
   <main>
-    <h2>Predictions with Google Sheets</h2>        
+    <h2>Predict using only Google Sheets</h2>        
 
     <p class="fs-5 col-md-8">Click link below to access our sheet with implemented script, that connects it with our prediction server.</br>
         You can make property price predictions directly in Google sheets.</p>
@@ -40,16 +40,129 @@
        </a>       
     </div>
 
-    <hr class="col-3 col-md-2 mb-5">
+    
 
-    <div class="row g-5">
-      <div class="col-md-6">
-        <h2>Setup</h2>
-        <p>(coming soon!)</p>
-        <ul class="icon-list ps-0">
-          <li class="d-flex align-items-start mb-1"><a href="https://github.com/twbs/bootstrap-npm-starter" rel="noopener" target="_blank">(coming soon!)</a></li>
-          <li class="text-muted d-flex align-items-start mb-1">(coming soon!)</li>
-        </ul>
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              Quick Start
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <strong>How to start predictions using Google Sheets:</strong>
+              <ul class="icon-list ps-0">
+                <li class="d-flex align-items-start mb-1">&#9656;Open Google Sheets, using green button above.</li>
+                <li class="d-flex align-items-start mb-1">&#9656;Sign in, with you google account.</li>
+                <li class="text-muted d-flex align-items-start mb-1">&#9656;"Custom Menu" appears in the navbar, next to "Help"</li>
+                <a href="{{url_for('static', filename='google_sheets.png')}}">
+                    <img src="{{url_for('static', filename='google_sheets.png')}}" class="img-fluid" alt="">
+                </a>                
+                <li class="d-flex align-items-start mb-1">&#9656;Click "Custom Menu" &#9657; "makePrediction"</li>                
+                <li class="d-flex align-items-start mb-1">&#9656;Now You have to authorize document script: (only the first time) </li>
+                <li class="d-flex align-items-start mb-1">&emsp;&#9642;&nbsp;Confirm your google account.</li>
+                <li class="d-flex align-items-start mb-1">&emsp;&#9642;&nbsp;Click "Advanced" &#9657; Go to Property Price Prediction by Bartosz Kowalik </li>
+                <li class="text-muted d-flex align-items-start mb-1">&emsp;&emsp;Don't worry about "unsafe" notation. It's just because Goggle can't verify custom scripts</li>
+                <li class="text-muted d-flex align-items-start mb-1">&emsp;&emsp;You can always access this script clicking "Extensions" &#9657; "Apps Scripts" to make sure it is safe </li>
+                <li class="d-flex align-items-start mb-1">&emsp;&#9642;&nbsp;Finally press "Allow" and it's done. </li>
+                <li class="d-flex align-items-start mb-1">&#9656;Price prediction will appear in "predict" column (You don't have to clear it before prediction). </li>                 
+            </ul>
+            <strong>You can modify data, add or delete rows in sheet. Format of input data is explained below.</strong></br>
+            <strong>Use "makePrediction" how many times you want. </strong>
+        </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              Input data format
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+            <div class="accordion-body">                
+              <strong>Data used to train machine learning model was in polish and input data is expected to be in that language as well. </strong>
+              <ul class="icon-list ps-0">
+                <li class="d-flex align-items-start mb-1 h6"></li>
+                <li class="d-flex align-items-start mb-1 h6">&#9656;area:</li>
+                    <li class="d-flex align-items-start mb-1">&emsp;&#9642;&nbsp;Property area</li>
+                    <li class="d-flex align-items-start mb-1">&emsp;&#9642;&nbsp;Float number</li>
+                <li class="d-flex align-items-start mb-1 h6">&#9656;rooms:</li>
+                    <li class="d-flex align-items-start mb-1">&emsp;&#9642;&nbsp;Number of rooms</li>
+                    <li class="d-flex align-items-start mb-1">&emsp;&#9642;&nbsp;Integer number</li>
+                <li class="d-flex align-items-start mb-1 h6">&#9656;location:</li>
+                    <li class="d-flex align-items-start mb-1">&emsp;&#9642;&nbsp;Location of property</li>
+                    <li class="d-flex align-items-start mb-1">&emsp;&#9642;&nbsp;Location from general to specific, coma separated. Correct capital letters expected.</li>
+                    <li class="d-flex align-items-start mb-1">&emsp;&#9642;&nbsp;Ex. Province,County,City,District</li>
+                    <li class="d-flex align-items-start mb-1">&emsp;&#9642;&nbsp;Only part of location can be used ex. Province,City or City</li>
+                <li class="d-flex align-items-start mb-1 h6">&#9656;floor:</li>
+                    <li class="d-flex align-items-start mb-1">&emsp;&#9642;&nbsp;Property floor number</li>
+                    <li class="d-flex align-items-start mb-1">&emsp;&#9642;&nbsp;Integer number</li>
+                <li class="d-flex align-items-start mb-1 h6">&#9656;floors_in_building:</li>
+                    <li class="d-flex align-items-start mb-1">&emsp;&#9642;&nbsp;Number of all floors in building</li>
+                    <li class="d-flex align-items-start mb-1">&emsp;&#9642;&nbsp;Integer number</li>
+                <li class="d-flex align-items-start mb-1 h6">&#9656;rok budowy:</li>
+                    <li class="d-flex align-items-start mb-1">&emsp;&#9642;&nbsp;Build year</li>
+                    <li class="d-flex align-items-start mb-1">&emsp;&#9642;&nbsp;Integer number</li>
+                <li class="d-flex align-items-start mb-1 h6">&#9656;is_primary_market:</li>
+                    <li class="d-flex align-items-start mb-1">&emsp;&#9642;&nbsp;Is primary market </li>
+                    <li class="d-flex align-items-start mb-1">&emsp;&#9642;&nbsp;Boolean: True or False</li>
+                <li class="d-flex align-items-start mb-1 h6">&#9656;rodzaj zabudowy:</li>
+                    <li class="d-flex align-items-start mb-1">&emsp;&#9642;&nbsp;Type of building</li>
+                    <li class="d-flex align-items-start mb-1">&emsp;&#9642;&nbsp;Choose from: "blok", "apartamentowiec", "kamienica", "dom wolnostojący", "szeregowiec", "plomba", "loft"</li>
+                <li class="d-flex align-items-start mb-1 h6">&#9656;okna:</li>
+                    <li class="d-flex align-items-start mb-1">&emsp;&#9642;&nbsp;Type of windows</li>
+                    <li class="d-flex align-items-start mb-1">&emsp;&#9642;&nbsp;Choose from: "plastikowe", "drewniane", "aluminiowe"</li>
+                <li class="d-flex align-items-start mb-1 h6">&#9656;stan wykończenia:</li>
+                    <li class="d-flex align-items-start mb-1">&emsp;&#9642;&nbsp;Finish condition</li>
+                    <li class="d-flex align-items-start mb-1">&emsp;&#9642;&nbsp;Choose from: "do zamieszkania", "do wykończenia", "do remontu"</li>
+                <li class="d-flex align-items-start mb-1 h6">&#9656;ogrzewanie:</li>
+                    <li class="d-flex align-items-start mb-1">&emsp;&#9642;&nbsp;Type of heating</li>
+                    <li class="d-flex align-items-start mb-1">&emsp;&#9642;&nbsp;Choose from: "miejskie", "gazowe", "inne", "kotłownia", "elektryczne", "piece kaflowe"</li>
+                <li class="d-flex align-items-start mb-1 h6">&#9656;forma własności:</li>
+                    <li class="d-flex align-items-start mb-1">&emsp;&#9642;&nbsp;Form of the property</li>
+                    <li class="d-flex align-items-start mb-1">&emsp;&#9642;&nbsp;Choose from: "pełna własność", "spółdzielcze własnościowe", "spółdzielcze wł. z kw", "udział" </li>
+                <li class="d-flex align-items-start mb-1 h6">&#9656;system alarmowy:</li>
+                   <li class="d-flex align-items-start mb-1">&emsp;&#9642;&nbsp;Alarm system</li>
+                    <li class="d-flex align-items-start mb-1">&emsp;&#9642;&nbsp;Boolean: True or False</li>
+                <li class="d-flex align-items-start mb-1 h6">&#9656;rolety antywłamaniowe:</li>
+                    <li class="d-flex align-items-start mb-1">&emsp;&#9642;&nbsp;Anti-burglary blinds</li>
+                    <li class="d-flex align-items-start mb-1">&emsp;&#9642;&nbsp;Boolean: True or False</li>
+                <li class="d-flex align-items-start mb-1 h6">&#9656;drzwi / okna antywłamaniowe:</li>
+                    <li class="d-flex align-items-start mb-1">&emsp;&#9642;&nbsp;Anti-theft doors/windows</li>
+                    <li class="d-flex align-items-start mb-1">&emsp;&#9642;&nbsp;Boolean: True or False</li>              
+            </ul>        
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              API
+            </button>
+          </h2>
+          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <strong>To be completed</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+     <hr class="col-3 col-md-2 mb-5">
+
+    <div class="row g-5">     
+      <div class="col-md-6">        
+        <h2>GitHub</h2>
+        <p>Visit project's GitHub page.</p>
+        <div class="mb-5">
+            <a href="https://github.com/Twarzy/property_forecast_excel_deploy" class="btn btn-outline-dark btn-lg px-4">    
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+              </svg>
+              GitHub
+             </a>       
+        </div>         
       </div>
 
       <div class="col-md-6">
@@ -63,20 +176,11 @@
               Linkedin
              </a>       
           </div>
-        <p>Visit project's GitHub page.</p>    
-          <div class="mb-5">
-            <a href="https://github.com/Twarzy/property_forecast_excel_deploy" class="btn btn-outline-dark btn-lg px-4">    
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
-                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-              </svg>
-              GitHub
-             </a>       
-          </div>     
-      </div>
+       </div>
     </div>
   </main>
   <footer class="pt-5 my-5 text-muted border-top">
-    Created by Bartosz Kowalik &middot; &copy; 2022
+    Created by Bartosz Kowalik &copy; 2022
   </footer>
 </div>
 
