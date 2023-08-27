@@ -60,4 +60,4 @@ Project is: _in progress_
 
 
 ## Contact
-Created by [@Bartosz Kowalik](https://www.linkedin.com/in/bartosz-kowalik-5756ba1b3/) - feel free to contact me! 
+Created by [@Bartosz Kowalik](https://www.linkedin.com/in/bartosz-kowalik-dev/) - feel free to contact me! 
